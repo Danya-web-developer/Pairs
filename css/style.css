@@ -1,0 +1,86 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+}
+
+.pairs-container {
+  min-width: 98vw;
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background: linear-gradient(to right, rgb(68, 160, 141), rgb(9, 54, 55));
+}
+
+.play-field {
+  width: 650px;
+  height: 650px;
+  display: flex;
+  flex-flow: row wrap;
+  margin: auto auto 40px auto;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: calc(25% - 10px);
+  height: calc(25% - 10px);
+  margin: 5px;
+  border-radius: 8px;
+  transition: all .6s ease-in-out;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  box-shadow: -2px 3px 11px -1px black;
+}
+
+.front {
+  background: linear-gradient(120deg, rgb(78, 205, 196), rgb(85, 98, 112));
+}
+
+.back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  background: linear-gradient(120deg, rgb(103, 178, 111), rgb(76, 162, 205));
+}
+
+.reset-btn {
+  display: block;
+  cursor: pointer;
+  background: lightblue;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 5px 10px;
+  transform: scale(0);
+  transition: transform 1s ease-in-out;
+}
+
+.reset-btn.show {
+  transform: scale(1);
+}
